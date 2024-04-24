@@ -9,21 +9,29 @@ import SignUp from "../Pages/SignUp";
 import Payments from "../Pages/Payments";
 import Admin from "../Pages/Admin";
 import SingleVacantProperty from "../Pages/SingleVacantProperty";
+import SingleProperty from "../Pages/SingleProperty";
+import PropertyPayment from "../Pages/Payments";
+import Payment from "../Pages/SingleProperty";
+import Home from "../Pages/Home";
+import PrivateRoute from "./PrivateRoute";
 
 
 
 export default function AllRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Property />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/properties" element={<Property />} />
+      <Route path="/properties/:id" element={<PrivateRoute><SingleProperty/></PrivateRoute>} />
+
       <Route path="/tenants" element={<Tenant />} />
       <Route path="/expenses" element={<Expense />} />
       <Route path="/vacant-properties" element={<VacantPropertiesList />} />
       <Route path="/reports" element={<Report />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signUp" element={<SignUp />} />
-      <Route path="/payment" element={< Payments/>} />
-      <Route path="/admin" element={<Admin />} />
+      <Route path="/payment" element={<Payment/>} />
+      <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
       <Route path="/vacant-properties/:id" element={<SingleVacantProperty/>} />
     </Routes>
   );

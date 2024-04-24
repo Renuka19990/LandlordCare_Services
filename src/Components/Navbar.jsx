@@ -19,26 +19,31 @@ import { NavLink } from "react-router-dom";
 const listOfLinks = [
   {
     id: 1,
-    name: "Property",
+    name: "Home",
     link: "/",
   },
   {
     id: 2,
+    name: "Property",
+    link: "/properties",
+  },
+  {
+    id: 3,
     name: "Tenants",
     link: "/tenants",
   },
   {
-    id: 3,
+    id: 4,
     name: "Expenses",
     link: "/expenses",
   },
   {
-    id: 4,
+    id: 5,
     name: "VacantProperty",
     link: "/vacant-properties",
   },
   {
-    id: 5,
+    id: 6,
     name: "Reports",
     link: "/reports",
   },

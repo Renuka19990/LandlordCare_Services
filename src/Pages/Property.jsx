@@ -1,57 +1,3 @@
-// import React, { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { Box, Button, Grid, Heading, Highlight, Link, Text } from "@chakra-ui/react";
-// import { fetchProperties } from "../Redux/actions";
-// import { NavLink } from "react-router-dom";
-
-// function Property() {
-//   const { properties } = useSelector((state) => state.auth);
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     dispatch(fetchProperties());
-//   }, [dispatch]);
-
-//   return (
-//     <Grid templateColumns="repeat(4, minmax(250px, 1fr))" gap={6}>
-//       <Heading as="h2" size="lg" gridColumn="1 / -1" mb={4}>
-//         Properties
-//       </Heading>
-//       {properties.length > 0 ? (
-//         properties.map((property) => (
-//           <Box
-//             key={property.id}
-//             borderWidth="1px"
-//             borderRadius="md"
-//             p={4}
-//             mb={4}
-//           >
-//             <Heading as="h3" size="md" mb={2}>
-//               {property.title}
-//             </Heading>
-//             <div style={{ maxWidth: "100%", height: "auto", overflow: "hidden", }}>
-//               <img
-//                 src={property.images[0]}
-//                 alt={property.title}
-//                 style={{ width: "100%", height: "200px",objectFit:"cover" }}
-//               />
-//             </div>
-//             <Text>Location: {property.location}</Text>
-//             <Text>Rent: ${property.Rent}</Text>
-//             <Button as={NavLink} to="/payment" bg={"#a9b0e2"}>Unlock Your Rental</Button>
-
-
-//           </Box>
-//         ))
-//       ) : (
-//         <Text textAlign={"center"}>Loading.......</Text>
-//       )}
-//     </Grid>
-//   );
-// }
-
-// export default Property;
-// Property.js
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box, Button, Flex, Grid, Heading, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
@@ -112,14 +58,9 @@ function Property() {
         </select>
       </Flex>
 
-    
       <Flex mb={4} alignItems="center">
         <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-         
-        />
-          
+          <InputLeftElement pointerEvents="none" />
           <Input
             type="text"
             value={searchQuery}
@@ -134,8 +75,7 @@ function Property() {
         </InputGroup>
       </Flex>
 
-
-      <Grid templateColumns="repeat(4, minmax(250px, 1fr))" gap={6}>
+      <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }} gap={6}>
         {filteredProperties.length > 0 ? (
           filteredProperties.map((property) => (
             <Box
@@ -157,7 +97,7 @@ function Property() {
               </div>
               <Text>Location: {property.location}</Text>
               <Text>Rent: ${property.Rent}</Text>
-              <Button as={NavLink} to="/payment" bg={"#a9b0e2"}>
+              <Button as={NavLink} to={`/properties/${property.id}`} bg={"#a9b0e2"}>
                 Unlock Your Rental
               </Button>
             </Box>
