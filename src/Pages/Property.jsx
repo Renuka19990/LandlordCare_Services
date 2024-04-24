@@ -67,7 +67,7 @@ function Property() {
             onChange={handleSearchChange}
             placeholder="Search by location"
             borderRadius="md"
-            bg="white"
+            bg="gray"
             border="1px solid #ccc"
             _hover={{ borderColor: "gray.400" }}
             _focus={{ borderColor: "blue.400" }}

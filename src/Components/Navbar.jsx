@@ -15,6 +15,8 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
+import { userLogout } from "../Redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const listOfLinks = [
   {
@@ -53,7 +55,8 @@ export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
-
+  const {isAuth} = useSelector(store => store.auth);
+  const dispatch=useDispatch();
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4} py={3}>
@@ -112,9 +115,22 @@ export default function Navbar() {
                 />
               )}
 
-              <Button as={NavLink} to="/login">
+{isAuth?(   <Button
+                size={"sm"}
+                bg={"#a9b0e2"}
+                color={"white"}
+             onClick={()=>dispatch(userLogout())}
+              >
+                Logout
+              </Button>):(   <Button
+                size={"sm"}
+                bg={"#a9b0e2"}
+                color={"white"}
+                as={"a"}
+                href="/login"
+              >
                 Login
-              </Button>
+              </Button>)}
               <Button as={NavLink} to="/signUp">
                 SignUp
               </Button>
