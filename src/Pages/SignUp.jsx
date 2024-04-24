@@ -95,7 +95,7 @@ export const SignupForm = () => {
               onChange={handleChange}
             />
           </FormControl>
-          <Button className="btn" type="submit" bg={"teal"} width={{ base: "40%", md: "40%" }}>
+          <Button className="btn" type="submit" bg={"#a9b0e2"} width={{ base: "40%", md: "40%" }}>
             Sign Up
           </Button>
         </form>

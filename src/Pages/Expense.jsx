@@ -39,7 +39,7 @@ export default function Expense() {
           </Tbody>
         </Table>
       ) : (
-        <Text>No expenses found.</Text>
+        <Text>Loading...</Text>
       )}
     </Box>
   );

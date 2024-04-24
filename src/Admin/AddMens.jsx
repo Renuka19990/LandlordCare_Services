@@ -117,6 +117,7 @@ import {
   FormLabel,
   Flex,
   useToast,
+  Box,
 } from '@chakra-ui/react';
 import axios from 'axios';
 
@@ -167,15 +168,15 @@ export const AddMens = ({ props }) => {
 
   return (
     <>
-      <Flex direction={'column'}>
-        <Button colorScheme='green' onClick={onOpen}>
-          Add Men's Data
+      <Box direction={'column'}>
+        <Button bg='#a9b0e2' onClick={onOpen}>
+          Add Properties Data
         </Button>
-      </Flex>
+      </Box>
       <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose} size={'xl'}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add Men's Data</ModalHeader>
+          <ModalHeader>Add Properties Data</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl mt={4}>
@@ -200,7 +201,7 @@ export const AddMens = ({ props }) => {
             </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={handleSubmit}>
+            <Button bg='#a9b0e2' mr={3} onClick={handleSubmit}>
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>

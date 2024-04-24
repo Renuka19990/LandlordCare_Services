@@ -1,4 +1,5 @@
 import React from "react";
+import { FaLandmark } from "react-icons/fa";
 import {
   Box,
   Flex,
@@ -9,6 +10,8 @@ import {
   useColorMode,
   IconButton,
   useMediaQuery,
+  Image,
+  Text,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
@@ -56,7 +59,25 @@ export default function Navbar() {
           wrap={isLargerThan768 ? "nowrap" : "wrap"}
         >
           <Flex gap={20} alignItems="center">
-            <Box>Logo</Box>
+          <Box display="flex" alignItems="center">
+      <Box
+        borderRadius="full"
+        bgGradient="linear(to-l, #7928CA,#add8e6)"
+        w="40px"
+        h="40px"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        mr={3}
+      >
+        <Text color="white" fontWeight="bold" fontSize="xl">
+        <FaLandmark />
+        </Text>
+      </Box>
+      <Text fontSize="xl" fontWeight="bold" color="#7928CA" fontFamily="Poppins">
+      EstateEcho
+      </Text>
+    </Box>
             {isLargerThan768 && (
               <Flex gap={10} fontSize={20}>
                 {listOfLinks.map((ele) => (
@@ -64,7 +85,7 @@ export default function Navbar() {
                     key={ele.id}
                     to={ele.link}
                     style={({ isActive }) =>
-                      isActive ? { color: "blue" } : { color: "gray" }
+                      isActive ? { color: "#7928CA" } : { color: "gray" }
                     }
                   >
                     {ele.name}
