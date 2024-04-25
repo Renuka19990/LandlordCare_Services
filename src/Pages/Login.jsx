@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useToast, FormControl, FormLabel, Input, Button, Heading, Box, Stack } from '@chakra-ui/react';
+import { useToast, FormControl, FormLabel, Input, Button, Heading, Box } from '@chakra-ui/react';
 import { loginUser } from '../Redux/actions';
 
-export const Loginform = () => {
+export const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -48,6 +48,7 @@ export const Loginform = () => {
         });
       })
       .catch((err) => {
+        console.log(err);
         toast({
           title: 'Login Failed',
           description: 'Invalid credentials',
@@ -96,4 +97,4 @@ export const Loginform = () => {
   );
 };
 
-export default Loginform;
+export default Login;

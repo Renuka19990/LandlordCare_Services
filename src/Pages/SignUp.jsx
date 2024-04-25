@@ -11,7 +11,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-export const SignupForm = () => {
+export const SignUp = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -48,7 +48,7 @@ export const SignupForm = () => {
             fontSize: '40px',
           }}
         >
-          Signup Page
+          SignUp Page
         </Heading>
         <form onSubmit={handleSubmit}>
           <FormControl style={{ margin: 'auto', fontSize: '19px' }}>
@@ -104,4 +104,4 @@ export const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default SignUp;

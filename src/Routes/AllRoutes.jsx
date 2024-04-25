@@ -6,11 +6,11 @@ import Report from "../Pages/Report";
 import Login from "../Pages/Login";
 import VacantPropertiesList from "../Pages/VacantPropertiesList";
 import SignUp from "../Pages/SignUp";
-import Payments from "../Pages/Payments";
+
 import Admin from "../Pages/Admin";
 import SingleVacantProperty from "../Pages/SingleVacantProperty";
 import SingleProperty from "../Pages/SingleProperty";
-import PropertyPayment from "../Pages/Payments";
+
 import Payment from "../Pages/SingleProperty";
 import Home from "../Pages/Home";
 import PrivateRoute from "./PrivateRoute";

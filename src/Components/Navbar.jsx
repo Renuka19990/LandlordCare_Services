@@ -14,7 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { userLogout } from "../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -103,7 +103,7 @@ export default function Navbar() {
             )}
           </Flex>
 
-          <Flex alignItems={"center"}>
+          <Flex alignItems={"baseline"} justifyContent={"center"}>
             <Stack direction={"row"} spacing={7}>
               {!isLargerThan768 && (
                 <IconButton
@@ -115,25 +115,25 @@ export default function Navbar() {
                 />
               )}
 
-{isAuth?(   <Button
+{isAuth?(  <Link to="/login"> <Button
                 size={"sm"}
                 bg={"#a9b0e2"}
                 color={"white"}
              onClick={()=>dispatch(userLogout())}
               >
                 Logout
-              </Button>):(   <Button
+              </Button></Link>):(   <Link to="/login"><Button
                 size={"sm"}
                 bg={"#a9b0e2"}
                 color={"white"}
-                as={"a"}
-                href="/login"
+    
+                mt={2}
               >
                 Login
-              </Button>)}
-              <Button as={NavLink} to="/signUp">
+              </Button></Link>)}
+              <Link to="/signUp"><Button >
                 SignUp
-              </Button>
+              </Button></Link>
               <Button onClick={toggleColorMode}>
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>
