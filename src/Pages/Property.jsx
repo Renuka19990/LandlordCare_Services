@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box, Button, Flex, Grid, Heading, Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Heading, Input, InputGroup, InputLeftElement, Text,  useColorMode,  useColorModeValue, } from "@chakra-ui/react";
 import { fetchProperties, sortPropertiesHighToLow, sortPropertiesLowToHigh } from "../Redux/actions";
 import { NavLink } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function Property() {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("");
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
-
+  const { colorMode, toggleColorMode } = useColorMode();
   useEffect(() => {
     dispatch(fetchProperties(currentPage));
   }, [dispatch, currentPage]);
@@ -67,10 +67,13 @@ function Property() {
             onChange={handleSearchChange}
             placeholder="Search by location"
             borderRadius="md"
-            bg="white"
+            bg={useColorModeValue("gray.100", "gray.900")}
+            color={"black"}
             border="1px solid #ccc"
-            _hover={{ borderColor: "gray.400" }}
+            _hover={{ borderColor: "gray.400",color:"black" }}
+           
             _focus={{ borderColor: "blue.400" }}
+          
           />
         </InputGroup>
       </Flex>
